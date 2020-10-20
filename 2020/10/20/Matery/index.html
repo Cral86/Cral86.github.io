@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="沐心,沐心呀,HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="Matery, 沐心,沐心呀,HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>沐心呀</title>
+    <title>Matery | 沐心呀</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -450,12 +450,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">Matery</h1>
                 </div>
             </div>
         </div>
@@ -570,9 +570,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/Matery/">
+                                <span class="chip bg-color">Matery</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -600,7 +608,31 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>记录Hexo-Matery主题的修改优化</p>
+<a id="more"></a>
+<h3 id="导航栏颜色修改"><a href="#导航栏颜色修改" class="headerlink" title="导航栏颜色修改"></a>导航栏颜色修改</h3><pre class=" language-bash"><code class="language-bash">$ 打开themes/matery/source/css/matery.css文件，有一个.bg-color属性，修改后的代码如下：
+  .bg-color <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    background-image: linear-gradient<span class="token punctuation">(</span>to right, <span class="token comment" spellcheck="true">#4cbf30 0%, #0f9d58 100%); /*导航栏颜色从左到右(渐变色)*/</span>
+    opacity: 0.8<span class="token punctuation">;</span>  /*透明效果 值范围 0~1*/
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span></code></pre>
+<h3 id="添加鼠标点击烟花爆炸效果"><a href="#添加鼠标点击烟花爆炸效果" class="headerlink" title="添加鼠标点击烟花爆炸效果"></a>添加鼠标点击烟花爆炸效果</h3><pre class=" language-bash"><code class="language-bash">$ 在themes/matery/source/js目录下新建fireworks.js文件，点击<span class="token punctuation">[</span>传送门<span class="token punctuation">]</span><span class="token punctuation">(</span>https://github.com/Cral86/Cral86.github.io/blob/master/js/fireworks.js<span class="token punctuation">)</span>，将内容复制粘贴到fireworks.js。
+$ 然后在themes/matery/layout/layout.ejs文件内添加下面的内容：
+  <span class="token operator">&lt;</span>canvas class<span class="token operator">=</span><span class="token string">"fireworks"</span> style<span class="token operator">=</span><span class="token string">"position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"</span> <span class="token operator">></span><span class="token operator">&lt;</span>/canvas<span class="token operator">></span> 
+  <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"//cdn.bootcss.com/animejs/2.2.0/anime.min.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span> 
+  <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"/js/fireworks.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span>
+</code></pre>
+<h3 id="添加樱花飘落的背景"><a href="#添加樱花飘落的背景" class="headerlink" title="添加樱花飘落的背景"></a>添加樱花飘落的背景</h3><pre class=" language-bash"><code class="language-bash">$ 在themes/matery/source/js目录下新建sakura.js文件，点击<span class="token punctuation">[</span>传送门<span class="token punctuation">]</span><span class="token punctuation">(</span>https://github.com/Cral86/Cral86.github.io/blob/master/js/sakura.js<span class="token punctuation">)</span>，将内容复制粘贴到sakura.js。
+$ 然后在themes/matery/layout/layout.ejs文件内添加下面的内容
+  <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+  //只在桌面版网页启用特效
+  var windowWidth <span class="token operator">=</span> <span class="token variable"><span class="token variable">$(</span>window<span class="token variable">)</span></span>.width<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>windowWidth <span class="token operator">></span> 768<span class="token punctuation">)</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+      document.write<span class="token punctuation">(</span><span class="token string">'&lt;script type="text/javascript" src="/js/sakura.js">&lt;\/script>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+  <span class="token operator">&lt;</span>/script<span class="token operator">></span>
+
+</code></pre>
+
             </div>
             <hr/>
 
@@ -662,7 +694,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/Matery/">
+                                    <span class="chip bg-color">Matery</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1100,15 +1140,15 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Matery">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Matery</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            记录Hexo-Matery主题的修改优化
                         
                     </div>
                     <div class="publish-info">
@@ -1125,6 +1165,18 @@
                 </div>
 
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Matery/">
+                        <span class="chip bg-color">Matery</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -1138,9 +1190,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Hello MySQL">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL">
                         
-                        <span class="card-title">Hello MySQL</span>
+                        <span class="card-title">MySQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
