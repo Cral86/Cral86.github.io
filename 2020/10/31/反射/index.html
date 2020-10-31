@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MySQL, 沐心,沐心呀,HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="反射, 沐心,沐心呀,HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MySQL | 沐心呀</title>
+    <title>反射 | 沐心呀</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -455,7 +455,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MySQL</h1>
+                    <h1 class="description center-align post-title">反射</h1>
                 </div>
             </div>
         </div>
@@ -576,8 +576,8 @@
                                 <span class="chip bg-color">笔记</span>
                             </a>
                         
-                            <a href="/tags/MySQL/">
-                                <span class="chip bg-color">MySQL</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -592,7 +592,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-19
+                    2020-10-31
                 </div>
                 
 
@@ -608,40 +608,74 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="记录MySQL的一些常用命令"><a href="#记录MySQL的一些常用命令" class="headerlink" title="记录MySQL的一些常用命令"></a>记录MySQL的一些常用命令</h1><a id="more"></a>
-<h3 id="MySQL数据库常规命令"><a href="#MySQL数据库常规命令" class="headerlink" title="MySQL数据库常规命令"></a>MySQL数据库常规命令</h3><pre class=" language-sql"><code class="language-sql">$ 登陆数据库
-  mysql <span class="token operator">-</span>u root <span class="token operator">-</span>p
+                <h1 id="记录反射的使用方法"><a href="#记录反射的使用方法" class="headerlink" title="记录反射的使用方法"></a>记录反射的使用方法</h1><a id="more"></a>
+<h3 id="反射的优势"><a href="#反射的优势" class="headerlink" title="反射的优势"></a>反射的优势</h3><pre><code>*反射：将类的各个组成部分封装为其他对象
+    *好处：
+       1.可以在程序运行过程中，操作这些对象
+       2.可以解耦，提高程序的可扩展性</code></pre>
+<h3 id="获取Class对象的方式"><a href="#获取Class对象的方式" class="headerlink" title="获取Class对象的方式"></a>获取Class对象的方式</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//1.多用于配置文件，将类名定义在配置文件中。读取文件，加载类</span>
+    Class<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"全类名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//将字节码文件加载进内存，返回class对象</span>
+<span class="token comment" spellcheck="true">//2.多用于参数传递</span>
+    类名<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//通过类名的class属性获取</span>
+<span class="token comment" spellcheck="true">//3.多用于对象获取字节码我文件对象</span>
+    对象<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//getClass()方法在Object中定义</span></code></pre>
+<h3 id="Class对象的使用"><a href="#Class对象的使用" class="headerlink" title="Class对象的使用"></a>Class对象的使用</h3><pre class=" language-java"><code class="language-java">获取功能：
+    <span class="token number">1</span><span class="token punctuation">.</span>获取成员变量：
+       <span class="token comment" spellcheck="true">//获取所有public修饰符的成员变量</span>
+       <span class="token operator">*</span>Field<span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+       <span class="token comment" spellcheck="true">//获取指定名称的public修饰符的成员变量</span>
+       <span class="token operator">*</span>Field      <span class="token function">getField</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-$ 查看全部数据库
-  <span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span>
+       <span class="token comment" spellcheck="true">//获取所有的成员变量，不考虑修饰符</span>
+       <span class="token operator">*</span>Field<span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getDeclaredFileds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token operator">*</span>Field      <span class="token function">getDeclaredFiled</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-$ 使用指定数据库
-  <span class="token keyword">use</span> <span class="token punctuation">(</span>数据库name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token number">2</span><span class="token punctuation">.</span>获取构造方法：
+       <span class="token operator">*</span>Constructor<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getConstructons</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token operator">*</span>Constructor<span class="token operator">&lt;</span>T<span class="token operator">></span>      <span class="token function">getConstructons</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-$ 查看数据库所有表格
-  <span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span>
+       <span class="token operator">*</span>Constructor<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getDeclaredConstructon</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token operator">*</span>Constructor<span class="token operator">&lt;</span>T<span class="token operator">></span>      <span class="token function">getDeclaredConstructons</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment" spellcheck="true">//创建对象</span>
+       <span class="token operator">*</span>constructor<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment" spellcheck="true">//空参构造简化版：</span>
+       <span class="token operator">*</span>newclass<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-$ 创建数据库
-  <span class="token keyword">create</span> <span class="token keyword">databases</span><span class="token punctuation">;</span>
+    <span class="token number">3</span><span class="token punctuation">.</span>获取成员方法
+       <span class="token comment" spellcheck="true">//获取所有方法</span>
+       <span class="token operator">*</span>Method<span class="token punctuation">[</span><span class="token punctuation">]</span>   <span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment" spellcheck="true">//获得指定方法</span>
+       <span class="token operator">*</span>Method<span class="token punctuation">[</span><span class="token punctuation">]</span>   <span class="token function">getDeclaredMethod</span><span class="token punctuation">(</span>name<span class="token operator">:</span><span class="token string">"方法名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-$ 删除表中数据
-  <span class="token keyword">delete</span> <span class="token keyword">from</span> <span class="token punctuation">(</span>表名<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token operator">*</span><span class="token keyword">new</span><span class="token punctuation">.</span>类<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment" spellcheck="true">//获取所有方法</span>
+       <span class="token operator">*</span>iter遍历
+       <span class="token comment" spellcheck="true">//执行方法</span>
+       <span class="token operator">*</span>方法名_method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-$ 删除表
-  <span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token punctuation">(</span>表名<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="MySQL数据库修改账号密码"><a href="#MySQL数据库修改账号密码" class="headerlink" title="MySQL数据库修改账号密码"></a>MySQL数据库修改账号密码</h3><pre class=" language-sql"><code class="language-sql">$ 常规修改
-  <span class="token keyword">set</span> password <span class="token keyword">for</span> <span class="token string">'用户名'</span>@'主机名<span class="token string">' = '</span>新密码'<span class="token punctuation">;</span>
+    <span class="token number">4</span><span class="token punctuation">.</span>获取类名
+      类Class<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-$ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<span class="token number">.0</span><span class="token punctuation">)</span>
-  net stop mysql   停止mysql服务   如果无法停止<span class="token punctuation">,</span>使用管理员身份启动CMD
-  mysqld <span class="token comment" spellcheck="true">--console --skip-grant-tables --shared-memory     启动MySQL服务的时候跳过权限表认证</span>
-  由于上面的命令行被mysql的服务给占用，我们得重新开启一个新的命令行
-  在新开的命令行中执行mysql
-  <span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> authentication_string <span class="token operator">=</span> <span class="token string">''</span>  <span class="token keyword">where</span> <span class="token keyword">user</span><span class="token operator">=</span><span class="token string">'root'</span> <span class="token punctuation">;</span>                将root用户的密码清空
-  quit 退出，然后在之前的命令行将我们开启的mysql服务停止掉<span class="token punctuation">(</span>Ctrl<span class="token operator">+</span>C或者关闭命令行<span class="token punctuation">)</span><span class="token punctuation">,</span>然后执行net  <span class="token keyword">start</span> mysql 重新启动mysql服务
-  mysql <span class="token operator">-</span>uroot <span class="token operator">-</span>p       然后按enter键<span class="token punctuation">(</span>无需输入密码<span class="token punctuation">)</span>
-  <span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span>@'localhost<span class="token string">' IDENTIFIED BY '</span>新密码'<span class="token punctuation">;</span>      修改密码
-  退出后，使用新密码登录  </code></pre>
+
+<span class="token comment" spellcheck="true">//忽略访问权限修饰符的安全检查</span>
+d<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//暴力反射</span></code></pre>
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><pre class=" language-java"><code class="language-java">   <span class="token comment" spellcheck="true">//1.将需要创建的对象的全类名和需要执行的方法定义在配置文件中</span>
+     文件名 对象名<span class="token operator">=</span><span class="token keyword">new</span> 文件名<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment" spellcheck="true">//2.在程序中加载读取配置文件</span>
+     类名<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getClassLoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     classLoader<span class="token punctuation">.</span><span class="token function">getResourceAsStream</span><span class="token punctuation">(</span><span class="token string">"文件名"</span><span class="token punctuation">)</span>
+     对象名<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>is<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment" spellcheck="true">//3.获取配置文件在定义的数据</span>
+     对象名<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"类名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     对象名<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"方法名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment" spellcheck="true">//4.使用反射加载类文件进内存</span>
+     Class<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment" spellcheck="true">//5.创建对象</span>
+     <span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment" spellcheck="true">//6.获取对象方法</span>
+     <span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment" spellcheck="true">//5.执行方法</span>
+     method<span class="token punctuation">.</span>invoke<span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -667,7 +701,7 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.zsmxy.cn/2020/10/19/MySQL/">https://www.zsmxy.cn/2020/10/19/MySQL/</a>
+                    <a href="https://www.zsmxy.cn/2020/10/31/%E5%8F%8D%E5%B0%84/">https://www.zsmxy.cn/2020/10/31/%E5%8F%8D%E5%B0%84/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -709,8 +743,8 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
                                     <span class="chip bg-color">笔记</span>
                                 </a>
                             
-                                <a href="/tags/MySQL/">
-                                    <span class="chip bg-color">MySQL</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -1145,6 +1179,55 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2020/10/31/%E6%B3%A8%E8%A7%A3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="注解">
+                        
+                        <span class="card-title">注解</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            记录注解的种类及使用
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-31
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            沐心
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2020/10/20/Matery/">
                     <div class="card-image">
                         
@@ -1161,9 +1244,9 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1181,55 +1264,6 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
                     
                     <a href="/tags/Matery/">
                         <span class="chip bg-color">Matery</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/10/19/Hexo/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Hexo">
-                        
-                        <span class="card-title">Hexo</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            记录Hexo的一些常用命令
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            沐心
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>

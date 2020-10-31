@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MySQL, 沐心,沐心呀,HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="注解, 沐心,沐心呀,HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MySQL | 沐心呀</title>
+    <title>注解 | 沐心呀</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -450,12 +450,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MySQL</h1>
+                    <h1 class="description center-align post-title">注解</h1>
                 </div>
             </div>
         </div>
@@ -576,8 +576,8 @@
                                 <span class="chip bg-color">笔记</span>
                             </a>
                         
-                            <a href="/tags/MySQL/">
-                                <span class="chip bg-color">MySQL</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -592,7 +592,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-19
+                    2020-10-31
                 </div>
                 
 
@@ -608,40 +608,66 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="记录MySQL的一些常用命令"><a href="#记录MySQL的一些常用命令" class="headerlink" title="记录MySQL的一些常用命令"></a>记录MySQL的一些常用命令</h1><a id="more"></a>
-<h3 id="MySQL数据库常规命令"><a href="#MySQL数据库常规命令" class="headerlink" title="MySQL数据库常规命令"></a>MySQL数据库常规命令</h3><pre class=" language-sql"><code class="language-sql">$ 登陆数据库
-  mysql <span class="token operator">-</span>u root <span class="token operator">-</span>p
+                <h1 id="记录注解的种类及使用"><a href="#记录注解的种类及使用" class="headerlink" title="记录注解的种类及使用"></a>记录注解的种类及使用</h1><a id="more"></a>
 
-$ 查看全部数据库
-  <span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span>
+<h3 id="注解的本质"><a href="#注解的本质" class="headerlink" title="注解的本质"></a>注解的本质</h3><pre><code>    1.以后大多数时候我们会使用注解，而不是自定义注解
+    2.注解给谁用？
+        1.编译器
+        2.给解析程序用
+    3.注解不是程序的一部分，注解就是一个标签</code></pre>
+<h3 id="作用分类"><a href="#作用分类" class="headerlink" title="作用分类"></a>作用分类</h3><pre><code>    1.编写文档：通过代码里表示的注解生成doc文档
+    2.代码分析：通过代码里表示的注解对代码进行分析(使用反射)  
+    3.编译检查：通过代码里表示的注解让编译器能够实现基本的编译检查(Override)</code></pre>
+<h3 id="JDK中预定义的一些注解"><a href="#JDK中预定义的一些注解" class="headerlink" title="JDK中预定义的一些注解"></a>JDK中预定义的一些注解</h3><pre class=" language-java"><code class="language-java">  <span class="token annotation punctuation">@Override</span> ：检测被该注解标注的方法是否继承自父类<span class="token punctuation">(</span>接口<span class="token punctuation">)</span>的
+  <span class="token annotation punctuation">@Deprecated</span> ：该注解标注的内容，表示已过时 
+  <span class="token annotation punctuation">@SuppressWarnings</span> ：压制警告</code></pre>
+<h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h3><pre class=" language-java"><code class="language-java">  <span class="token number">1</span><span class="token punctuation">.</span>格式：
+     <span class="token keyword">public</span> @<span class="token keyword">interface</span> 注解名称<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+         属性列表<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-$ 使用指定数据库
-  <span class="token keyword">use</span> <span class="token punctuation">(</span>数据库name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token number">2</span><span class="token punctuation">.</span>本质：注解本质上就是一个接口，该接口默认继承Annotation接口
+     <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">it<span class="token punctuation">.</span>cast<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>MyAnno</span> <span class="token keyword">extends</span> <span class="token class-name">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Annotation</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-$ 查看数据库所有表格
-  <span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span>
+  <span class="token number">3</span><span class="token punctuation">.</span>属性：接口里面可以定义的成员方法
+      要求：
+         <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>数据的返回值类型
+            <span class="token operator">*</span>基本数据类型
+            <span class="token operator">*</span>String
+            <span class="token operator">*</span>枚举
+            <span class="token operator">*</span>注解
+            <span class="token operator">*</span>以上类型的数组
 
-$ 创建数据库
-  <span class="token keyword">create</span> <span class="token keyword">databases</span><span class="token punctuation">;</span>
+         <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>定义了属性，在使用时需要给属性赋值
+            <span class="token operator">*</span>如果定义属性时，使用<span class="token keyword">default</span>关键字给属性默认初始化值，则使用注解可以不进行赋值
+            <span class="token operator">*</span>如果只有一个属性需要赋值，并且属性的名称是value，则value可以省略，直接定义值即可</code></pre>
+<h3 id="元注解：用于描述注解的注解"><a href="#元注解：用于描述注解的注解" class="headerlink" title="元注解：用于描述注解的注解"></a>元注解：用于描述注解的注解</h3><pre class=" language-java"><code class="language-java">   <span class="token number">1</span><span class="token punctuation">.</span>@Target ：描述注解能够作用的位置
+       <span class="token operator">*</span>ElemenType取值 ：
+            <span class="token operator">*</span>TYPE ：可以作用于类上
+            <span class="token operator">*</span>METHDO ：可以作用于方法上
+            <span class="token operator">*</span>FIELD ：可以作用于成员变量上           
 
-$ 删除表中数据
-  <span class="token keyword">delete</span> <span class="token keyword">from</span> <span class="token punctuation">(</span>表名<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token number">2</span><span class="token punctuation">.</span>@Retention ：描述注解被保留的阶段
+       <span class="token operator">*</span><span class="token function">Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span> ：当前被描述的注解，会保留到clas字节码文件中，并被JVM读取到
 
-$ 删除表
-  <span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token punctuation">(</span>表名<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="MySQL数据库修改账号密码"><a href="#MySQL数据库修改账号密码" class="headerlink" title="MySQL数据库修改账号密码"></a>MySQL数据库修改账号密码</h3><pre class=" language-sql"><code class="language-sql">$ 常规修改
-  <span class="token keyword">set</span> password <span class="token keyword">for</span> <span class="token string">'用户名'</span>@'主机名<span class="token string">' = '</span>新密码'<span class="token punctuation">;</span>
+   <span class="token number">3</span><span class="token punctuation">.</span>@Documented ：描述注解能否被抽取到api文档中
 
-$ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<span class="token number">.0</span><span class="token punctuation">)</span>
-  net stop mysql   停止mysql服务   如果无法停止<span class="token punctuation">,</span>使用管理员身份启动CMD
-  mysqld <span class="token comment" spellcheck="true">--console --skip-grant-tables --shared-memory     启动MySQL服务的时候跳过权限表认证</span>
-  由于上面的命令行被mysql的服务给占用，我们得重新开启一个新的命令行
-  在新开的命令行中执行mysql
-  <span class="token keyword">update</span> <span class="token keyword">user</span> <span class="token keyword">set</span> authentication_string <span class="token operator">=</span> <span class="token string">''</span>  <span class="token keyword">where</span> <span class="token keyword">user</span><span class="token operator">=</span><span class="token string">'root'</span> <span class="token punctuation">;</span>                将root用户的密码清空
-  quit 退出，然后在之前的命令行将我们开启的mysql服务停止掉<span class="token punctuation">(</span>Ctrl<span class="token operator">+</span>C或者关闭命令行<span class="token punctuation">)</span><span class="token punctuation">,</span>然后执行net  <span class="token keyword">start</span> mysql 重新启动mysql服务
-  mysql <span class="token operator">-</span>uroot <span class="token operator">-</span>p       然后按enter键<span class="token punctuation">(</span>无需输入密码<span class="token punctuation">)</span>
-  <span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span>@'localhost<span class="token string">' IDENTIFIED BY '</span>新密码'<span class="token punctuation">;</span>      修改密码
-  退出后，使用新密码登录  </code></pre>
+   <span class="token number">4</span><span class="token punctuation">.</span>@Inherited ：描述注解是否被子类继承</code></pre>
+<h3 id="在程序中使用-解析-注解"><a href="#在程序中使用-解析-注解" class="headerlink" title="在程序中使用(解析)注解"></a>在程序中使用(解析)注解</h3><pre class=" language-java"><code class="language-java">   <span class="token number">1</span><span class="token punctuation">.</span>获取注解定义位置的对象  <span class="token punctuation">(</span>Class，Method，Field<span class="token punctuation">)</span>
+   <span class="token number">2</span><span class="token punctuation">.</span>获取指定的注解
+      <span class="token operator">*</span><span class="token function">getAnnotation</span><span class="token punctuation">(</span>Class<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//其实就是在内存中生成了一个该注解接口的子类实现对象</span>
+      <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProImpl</span> <span class="token keyword">implements</span> <span class="token class-name">Pro</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> String <span class="token function">className</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token string">"it.cast.test.Demo"</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> String <span class="token function">methodName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token string">"show"</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token number">3</span><span class="token punctuation">.</span>调用注解中的抽象方法获取配置的属性值</code></pre>
 
             </div>
             <hr/>
@@ -667,7 +693,7 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.zsmxy.cn/2020/10/19/MySQL/">https://www.zsmxy.cn/2020/10/19/MySQL/</a>
+                    <a href="https://www.zsmxy.cn/2020/10/31/%E6%B3%A8%E8%A7%A3/">https://www.zsmxy.cn/2020/10/31/%E6%B3%A8%E8%A7%A3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -709,8 +735,8 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
                                     <span class="chip bg-color">笔记</span>
                                 </a>
                             
-                                <a href="/tags/MySQL/">
-                                    <span class="chip bg-color">MySQL</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -1141,29 +1167,30 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/10/20/Matery/">
+                <a href="/2020/10/31/%E6%B3%A8%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Matery">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="注解">
                         
-                        <span class="card-title">Matery</span>
+                        <span class="card-title">注解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录Hexo-Matery主题的修改优化
+                            记录注解的种类及使用
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1172,6 +1199,7 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1179,8 +1207,8 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/Matery/">
-                        <span class="chip bg-color">Matery</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
@@ -1194,24 +1222,24 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/19/Hexo/">
+                <a href="/2020/10/31/%E5%8F%8D%E5%B0%84/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Hexo">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="反射">
                         
-                        <span class="card-title">Hexo</span>
+                        <span class="card-title">反射</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录Hexo的一些常用命令
+                            记录反射的使用方法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-31
                             </span>
                         <span class="publish-author">
                             
@@ -1228,8 +1256,8 @@ $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<s
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
