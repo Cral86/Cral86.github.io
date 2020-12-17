@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="注解, 沐心,沐心呀,HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="反射, 沐心,沐心呀,HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>注解 | 沐心</title>
+    <title>反射 | 沐心</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -387,12 +387,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">注解</h1>
+                    <h1 class="description center-align post-title">反射</h1>
                 </div>
             </div>
         </div>
@@ -513,8 +513,8 @@
                                 <span class="chip bg-color">笔记</span>
                             </a>
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/HTML/">
+                                <span class="chip bg-color">HTML</span>
                             </a>
                         
                     </div>
@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-31
+                    2020-12-17
                 </div>
                 
 
@@ -545,66 +545,76 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="记录注解的种类及使用"><a href="#记录注解的种类及使用" class="headerlink" title="记录注解的种类及使用"></a>记录注解的种类及使用</h1><a id="more"></a>
+                <h1 id="记录HTML的用途和用法"><a href="#记录HTML的用途和用法" class="headerlink" title="记录HTML的用途和用法"></a>记录HTML的用途和用法</h1><a id="more"></a>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><pre><code>*HTML：用于搭建基础网页,展示页面的内容
+    *Hyper Text Markup Language 超文本标记语言</code></pre>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class=" language-html"><code class="language-html">//1.html文档后缀名：html或者htm
+//2.标签分为：
+    1.围堵标签：有开始标签和结束标签.  如<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+    2.自闭合标签：开始标签和结束标签在一起.   如<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+    3.标签可以嵌套：
+      需要正确嵌套,不能交叉嵌套
+    4.在开始标签中定义属性.属性是由键值对构成,值需要引号(单双都可)引起来
+    5.html的标签不区分大小写,建议使用小写</code></pre>
+<h3 id="标签类别"><a href="#标签类别" class="headerlink" title="标签类别"></a>标签类别</h3><pre class=" language-html"><code class="language-html">    1.文件标签：
+      html：告知浏览器这是一个HTML文档。
+      head：head 元素可包含关于文档的信息,引入外部资源
+      title：定义文档的标题。
+      dody：文档的主体.其中包含文档的所有内容(比如文本、图像、颜色、图形等等)
+      <span class="token doctype">&lt;!DOCTYPE>该标签告知浏览器文档所使用的 HTML 规范.
+    2.文本标签：
+      &lt;h1></span> to <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span><span class="token punctuation">></span></span>：字体大小逐渐递减
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>：段落
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>：换行符
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">></span></span>：展示一条水平线
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">></span></span>：字体加粗
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">></span></span>：斜体
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span><span class="token punctuation">></span></span>：字体标签
+      属性定义：
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color</span><span class="token punctuation">></span></span>：三色调配 #值1值2值3,值的范围00~FF之间.
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>width</span><span class="token punctuation">></span></span>：数值的单位,默认是px(像素)或者占比(相较于父元素)
 
-<h3 id="注解的本质"><a href="#注解的本质" class="headerlink" title="注解的本质"></a>注解的本质</h3><pre><code>    1.以后大多数时候我们会使用注解，而不是自定义注解
-    2.注解给谁用？
-        1.编译器
-        2.给解析程序用
-    3.注解不是程序的一部分，注解就是一个标签</code></pre>
-<h3 id="作用分类"><a href="#作用分类" class="headerlink" title="作用分类"></a>作用分类</h3><pre><code>    1.编写文档：通过代码里表示的注解生成doc文档
-    2.代码分析：通过代码里表示的注解对代码进行分析(使用反射)  
-    3.编译检查：通过代码里表示的注解让编译器能够实现基本的编译检查(Override)</code></pre>
-<h3 id="JDK中预定义的一些注解"><a href="#JDK中预定义的一些注解" class="headerlink" title="JDK中预定义的一些注解"></a>JDK中预定义的一些注解</h3><pre class=" language-java"><code class="language-java">  <span class="token annotation punctuation">@Override</span> ：检测被该注解标注的方法是否继承自父类<span class="token punctuation">(</span>接口<span class="token punctuation">)</span>的
-  <span class="token annotation punctuation">@Deprecated</span> ：该注解标注的内容，表示已过时 
-  <span class="token annotation punctuation">@SuppressWarnings</span> ：压制警告</code></pre>
-<h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h3><pre class=" language-java"><code class="language-java">  <span class="token number">1</span><span class="token punctuation">.</span>格式：
-     <span class="token keyword">public</span> @<span class="token keyword">interface</span> 注解名称<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-         属性列表<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    3.获取成员方法
+       //获取所有方法
+       *Method[]   getMethod();
+       //获得指定方法
+       *Method[]   getDeclaredMethod(name:"方法名");
 
-  <span class="token number">2</span><span class="token punctuation">.</span>本质：注解本质上就是一个接口，该接口默认继承Annotation接口
-     <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">it<span class="token punctuation">.</span>cast<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>MyAnno</span> <span class="token keyword">extends</span> <span class="token class-name">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Annotation</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    3.图片标签：
+      &lt;img src = "图片路径" >
+      ./或者省略不写，表示图片在当前路径下
+      . ./ 表示文件的上一级目录
+      /表示当前路径的下一级
 
-  <span class="token number">3</span><span class="token punctuation">.</span>属性：接口里面可以定义的成员方法
-      要求：
-         <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>数据的返回值类型
-            <span class="token operator">*</span>基本数据类型
-            <span class="token operator">*</span>String
-            <span class="token operator">*</span>枚举
-            <span class="token operator">*</span>注解
-            <span class="token operator">*</span>以上类型的数组
-
-         <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>定义了属性，在使用时需要给属性赋值
-            <span class="token operator">*</span>如果定义属性时，使用<span class="token keyword">default</span>关键字给属性默认初始化值，则使用注解可以不进行赋值
-            <span class="token operator">*</span>如果只有一个属性需要赋值，并且属性的名称是value，则value可以省略，直接定义值即可</code></pre>
-<h3 id="元注解：用于描述注解的注解"><a href="#元注解：用于描述注解的注解" class="headerlink" title="元注解：用于描述注解的注解"></a>元注解：用于描述注解的注解</h3><pre class=" language-java"><code class="language-java">   <span class="token number">1</span><span class="token punctuation">.</span>@Target ：描述注解能够作用的位置
-       <span class="token operator">*</span>ElemenType取值 ：
-            <span class="token operator">*</span>TYPE ：可以作用于类上
-            <span class="token operator">*</span>METHDO ：可以作用于方法上
-            <span class="token operator">*</span>FIELD ：可以作用于成员变量上           
-
-   <span class="token number">2</span><span class="token punctuation">.</span>@Retention ：描述注解被保留的阶段
-       <span class="token operator">*</span><span class="token function">Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span> ：当前被描述的注解，会保留到clas字节码文件中，并被JVM读取到
-
-   <span class="token number">3</span><span class="token punctuation">.</span>@Documented ：描述注解能否被抽取到api文档中
-
-   <span class="token number">4</span><span class="token punctuation">.</span>@Inherited ：描述注解是否被子类继承</code></pre>
-<h3 id="在程序中使用-解析-注解"><a href="#在程序中使用-解析-注解" class="headerlink" title="在程序中使用(解析)注解"></a>在程序中使用(解析)注解</h3><pre class=" language-java"><code class="language-java">   <span class="token number">1</span><span class="token punctuation">.</span>获取注解定义位置的对象  <span class="token punctuation">(</span>Class，Method，Field<span class="token punctuation">)</span>
-   <span class="token number">2</span><span class="token punctuation">.</span>获取指定的注解
-      <span class="token operator">*</span><span class="token function">getAnnotation</span><span class="token punctuation">(</span>Class<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true">//其实就是在内存中生成了一个该注解接口的子类实现对象</span>
-      <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProImpl</span> <span class="token keyword">implements</span> <span class="token class-name">Pro</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">public</span> String <span class="token function">className</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token string">"it.cast.test.Demo"</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">public</span> String <span class="token function">methodName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token string">"show"</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-
-    <span class="token number">3</span><span class="token punctuation">.</span>调用注解中的抽象方法获取配置的属性值</code></pre>
+    4.列表标签：
+      1.有序列表：
+        ol：
+        li：
+      2.无序列表
+        ul：
+        li：
+    5.链接标签：
+      &lt;a href = "连接地址">  //a：定义一个超链接  href：指定访问资源的url
+      &lt;a href = "连接地址" target = "_blank">  target：指定打开资源的方式  默认_self
+    6.div和span：
+      div：每一个div占满一整行.块级标签
+      span：文本信息在一行展示,行内标签,内联标签
+    7.语义化标签：html5为了提高程序的可读性,提供了一些标签
+      1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>
+      2.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">></span></span>
+    8.表格标签：
+      1.table：定义表格
+        width：宽度
+        border：边框
+        bgcolor：背景色
+        cellpadding：定义内容和单元格之间的距离
+        cellspacing：定义单元格之间的距离,如果为0,则单元格的线会合并成为一条
+      2.tr：定义行
+      3.td：定义单元格
+        colspan：合并列
+        rowspan：合并行
+      4.th：定义表头单元格
+      5.caption：表格标题</code></pre>
 
             </div>
             <hr/>
@@ -630,7 +640,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.zsmxy.cn/2020/10/31/%E6%B3%A8%E8%A7%A3/">https://www.zsmxy.cn/2020/10/31/%E6%B3%A8%E8%A7%A3/</a>
+                    <a href="https://www.zsmxy.cn/2020/12/17/HTML/">https://www.zsmxy.cn/2020/12/17/HTML/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,8 +682,8 @@
                                     <span class="chip bg-color">笔记</span>
                                 </a>
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/tags/HTML/">
+                                    <span class="chip bg-color">HTML</span>
                                 </a>
                             
                         </div>
@@ -1104,9 +1114,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/12/17/HTML/">
                     <div class="card-image">
@@ -1124,9 +1135,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1135,6 +1146,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1157,19 +1169,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/31/%E5%8F%8D%E5%B0%84/">
+                <a href="/2020/10/31/%E6%B3%A8%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="反射">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="注解">
                         
-                        <span class="card-title">反射</span>
+                        <span class="card-title">注解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录反射的使用方法
+                            记录注解的种类及使用
                         
                     </div>
                     <div class="publish-info">
