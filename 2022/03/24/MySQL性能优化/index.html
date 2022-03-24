@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux基础, 沐心,沐心呀,HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="MySQL性能优化, 沐心,沐心呀,HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux基础 | 沐心 - (*^▽^*)欢迎访问我的博客❤</title>
+    <title>MySQL性能优化 | 沐心 - (*^▽^*)欢迎访问我的博客❤</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -387,12 +387,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux基础</h1>
+                    <h1 class="description center-align post-title">MySQL性能优化</h1>
                 </div>
             </div>
         </div>
@@ -513,8 +513,8 @@
                                 <span class="chip bg-color">笔记</span>
                             </a>
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-18
+                    2022-03-24
                 </div>
                 
 
@@ -545,21 +545,31 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux体系架构和基本概念"><a href="#Linux体系架构和基本概念" class="headerlink" title="Linux体系架构和基本概念"></a>Linux体系架构和基本概念</h1><a id="more"></a>
-<h3 id="体系架构"><a href="#体系架构" class="headerlink" title="体系架构"></a>体系架构</h3><pre class=" language-cmd"><code class="language-cmd">底层（系统内核）：处理较底层，如任务内存管理，进程调度，文件管理
-中间层（命令解释层）：Shell是处理用户请求的工具
-高层（应用层）</code></pre>
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><pre class=" language-cmd"><code class="language-cmd">Terminal（终端）：输入设备
-
-Shell：“提供给使用者使用界面”的软件（命令解释器）
-
-Linux严格区分大小写
-
-Linux不靠扩展名区分文件类型
-
-Linux中所有内容都以文件形式保存（包括硬件设备）
-
-Linux所有存储设备都必须在挂载之后才能使用</code></pre>
+                <h1 id="MySQL性能优化"><a href="#MySQL性能优化" class="headerlink" title="MySQL性能优化"></a>MySQL性能优化</h1><a id="more"></a>
+<h3 id="原则：减少系统的瓶颈，减少资源的占用，增加系统的反应速度"><a href="#原则：减少系统的瓶颈，减少资源的占用，增加系统的反应速度" class="headerlink" title="原则：减少系统的瓶颈，减少资源的占用，增加系统的反应速度"></a>原则：减少系统的瓶颈，减少资源的占用，增加系统的反应速度</h3><pre class=" language-cmd"><code class="language-cmd">（1）优先选择符合存储需要的最小的数据类型
+（2）尽可能把所有列定义为 NOT NULL
+           索引 NULL 列需要额外的空间来保存，所以要占用更多的空间
+           进行比较和计算时要对 NULL 值做特别的处理
+（3）限制每张表上的索引数量,建议单张表索引不超过 5 个
+           索引并不是越多越好！索引可以提高效率同样可以降低效率。
+           索引可以增加查询效率，但同样也会降低插入和更新的效率，甚至有些情况下会降低查询效率
+           索引的建立：
+                 a.出现在 SELECT、UPDATE、DELETE 语句的 WHERE 从句中的列
+                 b.包含在 ORDER BY、GROUP BY、DISTINCT 中的字段
+                 c.多表 join 的关联列
+（4）尽量不使用 SELECT * 
+（5）避免使用子查询，可以把子查询优化为 join 操作
+               子查询性能差的原因：子查询的结果集无法使用索引，通常子查询的结果集会被存储到临时表中，
+                                                不论是内存临时表还是磁盘临时表都不会存在索引，所以查询性能会受到一定的影响。
+                                                特别是对于返回结果集比较大的子查询，其对查询性能的影响也就越大。
+               由于子查询会产生大量的临时表也没有索引，所以会消耗过多的 CPU 和 IO 资源，产生大量的慢查询
+（6）优化数据库表的结构, 将字段多的表分为多个表
+（7）尽量不对有索引的列进行模糊查询，可能会造成索引失效，特别是模糊查询如果以%开头 如 like '%com'
+（8）优化插入速度，插入时禁用索引, 或者使用批量插入
+               ALTER TABLE 表名 DISABLE KEYS;
+（9）合理的修改配置文件
+               开启慢日志，从日志中查看执行慢的SQL语句
+</code></pre>
 
             </div>
             <hr/>
@@ -585,7 +595,7 @@ Linux所有存储设备都必须在挂载之后才能使用</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.zsmxy.cn/2022/03/18/Linux_%E5%9F%BA%E7%A1%80/">https://www.zsmxy.cn/2022/03/18/Linux_%E5%9F%BA%E7%A1%80/</a>
+                    <a href="https://www.zsmxy.cn/2022/03/24/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">https://www.zsmxy.cn/2022/03/24/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -627,8 +637,8 @@ Linux所有存储设备都必须在挂载之后才能使用</code></pre>
                                     <span class="chip bg-color">笔记</span>
                                 </a>
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -1059,9 +1069,10 @@ Linux所有存储设备都必须在挂载之后才能使用</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/03/24/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
                     <div class="card-image">
@@ -1079,9 +1090,9 @@ Linux所有存储设备都必须在挂载之后才能使用</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1090,6 +1101,7 @@ Linux所有存储设备都必须在挂载之后才能使用</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1112,24 +1124,24 @@ Linux所有存储设备都必须在挂载之后才能使用</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/12/17/HTML/">
+                <a href="/2022/03/18/Linux_%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="HTML">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Linux基础">
                         
-                        <span class="card-title">HTML</span>
+                        <span class="card-title">Linux基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录HTML的用途和用法
+                            Linux体系架构和基本概念
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-18
                             </span>
                         <span class="publish-author">
                             
@@ -1146,8 +1158,8 @@ Linux所有存储设备都必须在挂载之后才能使用</code></pre>
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/HTML/">
-                        <span class="chip bg-color">HTML</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
