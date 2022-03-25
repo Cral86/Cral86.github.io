@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MySQL性能优化, http://localhost:4000">
+    <meta name="keywords" content="Super，This用法, http://localhost:4000">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MySQL性能优化 | 沐心  (*^▽^*)欢迎访问❤</title>
+    <title>Super，This用法 | 沐心  (*^▽^*)欢迎访问❤</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -387,12 +387,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MySQL性能优化</h1>
+                    <h1 class="description center-align post-title">Super，This用法</h1>
                 </div>
             </div>
         </div>
@@ -513,8 +513,8 @@
                                 <span class="chip bg-color">笔记</span>
                             </a>
                         
-                            <a href="/tags/MySQL/">
-                                <span class="chip bg-color">MySQL</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-24
+                    2022-03-25
                 </div>
                 
 
@@ -545,32 +545,45 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="MySQL性能优化"><a href="#MySQL性能优化" class="headerlink" title="MySQL性能优化"></a>MySQL性能优化</h1><a id="more"></a>
-<h3 id="原则：减少系统的瓶颈，减少资源的占用，增加系统的反应速度"><a href="#原则：减少系统的瓶颈，减少资源的占用，增加系统的反应速度" class="headerlink" title="原则：减少系统的瓶颈，减少资源的占用，增加系统的反应速度"></a>原则：减少系统的瓶颈，减少资源的占用，增加系统的反应速度</h3><pre class=" language-cmd"><code class="language-cmd">（1）优先选择符合存储需要的最小的数据类型
-（2）尽可能把所有列定义为 NOT NULL
-           索引 NULL 列需要额外的空间来保存，所以要占用更多的空间
-           进行比较和计算时要对 NULL 值做特别的处理
-（3）限制每张表上的索引数量,建议单张表索引不超过 5 个
-           索引并不是越多越好！索引可以提高效率同样可以降低效率。
-           索引可以增加查询效率，但同样也会降低插入和更新的效率，甚至有些情况下会降低查询效率
-           索引的建立：
-                 a.出现在 SELECT、UPDATE、DELETE 语句的 WHERE 从句中的列
-                 b.包含在 ORDER BY、GROUP BY、DISTINCT 中的字段
-                 c.多表 join 的关联列
-（4）尽量不使用 SELECT * 
-（5）避免使用子查询，可以把子查询优化为 join 操作
-               子查询性能差的原因：
-                      子查询的结果集无法使用索引，通常子查询的结果集会被存储到临时表中，
-                      不论是内存临时表还是磁盘临时表都不会存在索引，所以查询性能会受到一定的影响。
-                      特别是对于返回结果集比较大的子查询，其对查询性能的影响也就越大。
-               由于子查询会产生大量的临时表也没有索引，所以会消耗过多的 CPU 和 IO 资源，产生大量的慢查询
-（6）优化数据库表的结构, 将字段多的表分为多个表
-（7）尽量不对有索引的列进行模糊查询，可能会造成索引失效，特别是模糊查询如果以%开头 如 like '%com'
-（8）优化插入速度，插入时禁用索引, 或者使用批量插入
-               ALTER TABLE 表名 DISABLE KEYS;
-（9）合理的修改配置文件
-               开启慢日志，从日志中查看执行慢的SQL语句
-</code></pre>
+                <h1 id="Java中Super和this的用法"><a href="#Java中Super和this的用法" class="headerlink" title="Java中Super和this的用法"></a>Java中Super和this的用法</h1><a id="more"></a>
+<h2 id="super"><a href="#super" class="headerlink" title="super"></a>super</h2><pre class=" language-cmd"><code class="language-cmd">1. 如果子类没有重写父类的方法，调用父类的方法用不用super关键字结果都一样。 
+    如果子类重写父类的方法，调用父类的方法必须用super关键字
+2. super关键字表示对某个类的父类的引用。
+一般而言，super有两种通用形式：
+      a. 第一种用来访问被子类的成员隐藏的父类成员；
+      b. 第二种则是可以调用父类的构造函数</code></pre>
+<h3 id="super的两种通用形式"><a href="#super的两种通用形式" class="headerlink" title="super的两种通用形式"></a>super的两种通用形式</h3><pre class=" language-cmd"><code class="language-cmd">a. 如子类和父类有同名的成员变量或方法，则父类的成员将会被覆盖，此时可用下面的方式来引用父类的成员：
+   super.成员变量名
+   super.成员方法名
+在Java语言中，用过继承关系实现对成员的访问是按照最近匹配原则进行的，规则如下：
+（1）在子类中访问成员变量和方法时将优先查找是否在本类中已经定义，
+如果该成员在本类中存在，则使用本类的，否则，按照继承层次的顺序往父类查找，
+如果未找到，继续逐层向上到其祖先类查找。
+（2）super特指访问父类的成员，使用super首先到直接父类查找匹配成员，
+如果未找到，再逐层向上到祖先类查找。
+
+b. 子类可以通过super关键字调用父类中定义的构造方法，格式如下：
+    super(调用参数列表)
+其中调用参数列表必须和父类的某个构造函数方法的参数列表完全匹配。
+子类与其直接父类之间的构造方法存在约束关系，有以下几条重要原则：
+（1）按继承关系，构造方法是从顶向下进行调用的。
+（2）如果子类没有构造方法，则它默认调用父类无参的构造方法，
+如果父类中没有无参数的构造方法，则将产生错误。
+（3）如果子类有构造方法，那么创建子类的对象时，
+先执行父类的构造方法，再执行子类的构造方法。
+（4）如果子类有构造方法，但子类的构造方法中没有super关键字，
+则系统默认执行该构造方法时会产生super()代码，即该构造方法会调用父类无参数的构造方法。
+（5）对于父类中包含有参数的构造方法，子类可以通过在自己的构造方法中使用super关键字来引用，
+而且必须是子类构造函数方法中的第一条语句。
+（6）Java语言中规定当一个类中含有一个或多个有参构造方法，系统不提供默认的构造方法（即不含参数的构造方法）,
+所以当父类中定义了多个有参数构造方法时，应考虑写一个无参数的构造方法，以防子类省略super关键字时出现错误。</code></pre>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><h3 id="this的用法"><a href="#this的用法" class="headerlink" title="this的用法"></a>this的用法</h3><pre class=" language-cmd"><code class="language-cmd">1. 通过this关键字可以明确的访问一个类的成员变量（解决成员变量与局部变量名称冲突问题）
+2. 通过this关键字调用成员方法   
+3. 在构造方法中访问构造方法使用this([参数1，参数2，…])
+在有参构造方法中调用了无参构造方法，在使用this调用构造方法时有以下注意几点：
+       a. 只能在构造方法中使用this()调用其他的构造方法，不能在成员方法中使用。
+       b. 在构造方法中使用this()调用构造方法的语句必须位于第一行，而且只能出现一次。
+       c. 不能在一个类中的两个构造方法中使用this()互相调用。</code></pre>
 
             </div>
             <hr/>
@@ -596,7 +609,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.zsmxy.cn/2022/03/24/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">https://www.zsmxy.cn/2022/03/24/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</a>
+                    <a href="https://www.zsmxy.cn/2022/03/25/super,this/">https://www.zsmxy.cn/2022/03/25/super,this/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -638,8 +651,8 @@
                                     <span class="chip bg-color">笔记</span>
                                 </a>
                             
-                                <a href="/tags/MySQL/">
-                                    <span class="chip bg-color">MySQL</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -1070,9 +1083,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/03/25/super,this/">
                     <div class="card-image">
@@ -1090,9 +1104,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1101,6 +1115,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1123,24 +1138,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/18/Linux_%E5%9F%BA%E7%A1%80/">
+                <a href="/2022/03/24/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Linux基础">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="MySQL性能优化">
                         
-                        <span class="card-title">Linux基础</span>
+                        <span class="card-title">MySQL性能优化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linux体系架构和基本概念
+                            MySQL性能优化
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-24
                             </span>
                         <span class="publish-author">
                             
@@ -1157,8 +1172,8 @@
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
