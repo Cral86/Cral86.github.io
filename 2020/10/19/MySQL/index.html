@@ -545,8 +545,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="记录MySQL的一些常用命令"><a href="#记录MySQL的一些常用命令" class="headerlink" title="记录MySQL的一些常用命令"></a>记录MySQL的一些常用命令</h1><a id="more"></a>
-<h3 id="MySQL数据库常规命令"><a href="#MySQL数据库常规命令" class="headerlink" title="MySQL数据库常规命令"></a>MySQL数据库常规命令</h3><pre class=" language-sql"><code class="language-sql">$ 登陆数据库
+                <h3 id="记录MySQL的一些常用命令"><a href="#记录MySQL的一些常用命令" class="headerlink" title="记录MySQL的一些常用命令"></a>记录MySQL的一些常用命令</h3><a id="more"></a>
+
+<h4 id="MySQL数据库常规命令"><a href="#MySQL数据库常规命令" class="headerlink" title="MySQL数据库常规命令"></a>MySQL数据库常规命令</h4><pre class=" language-sql"><code class="language-sql">$ 登陆数据库
   mysql <span class="token operator">-</span>u root <span class="token operator">-</span>p
 
 $ 查看全部数据库
@@ -566,7 +567,7 @@ $ 删除表中数据
 
 $ 删除表
   <span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token punctuation">(</span>表名<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="MySQL数据库修改账号密码"><a href="#MySQL数据库修改账号密码" class="headerlink" title="MySQL数据库修改账号密码"></a>MySQL数据库修改账号密码</h3><pre class=" language-sql"><code class="language-sql">$ 常规修改
+<h4 id="MySQL数据库修改账号密码"><a href="#MySQL数据库修改账号密码" class="headerlink" title="MySQL数据库修改账号密码"></a>MySQL数据库修改账号密码</h4><pre class=" language-sql"><code class="language-sql">$ 常规修改
   <span class="token keyword">set</span> password <span class="token keyword">for</span> <span class="token string">'用户名'</span>@'主机名<span class="token string">' = '</span>新密码'<span class="token punctuation">;</span>
 
 $ 忘记原密码修改<span class="token punctuation">(</span>试用于MySQL8<span class="token number">.0</span><span class="token punctuation">)</span>

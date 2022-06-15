@@ -545,66 +545,66 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="记录注解的种类及使用"><a href="#记录注解的种类及使用" class="headerlink" title="记录注解的种类及使用"></a>记录注解的种类及使用</h1><a id="more"></a>
+                <h3 id="记录注解的种类及使用"><a href="#记录注解的种类及使用" class="headerlink" title="记录注解的种类及使用"></a>记录注解的种类及使用</h3><a id="more"></a>
 
-<h3 id="注解的本质"><a href="#注解的本质" class="headerlink" title="注解的本质"></a>注解的本质</h3><pre><code>    1.以后大多数时候我们会使用注解，而不是自定义注解
-    2.注解给谁用？
-        1.编译器
-        2.给解析程序用
-    3.注解不是程序的一部分，注解就是一个标签</code></pre>
-<h3 id="作用分类"><a href="#作用分类" class="headerlink" title="作用分类"></a>作用分类</h3><pre><code>    1.编写文档：通过代码里表示的注解生成doc文档
-    2.代码分析：通过代码里表示的注解对代码进行分析(使用反射)  
-    3.编译检查：通过代码里表示的注解让编译器能够实现基本的编译检查(Override)</code></pre>
-<h3 id="JDK中预定义的一些注解"><a href="#JDK中预定义的一些注解" class="headerlink" title="JDK中预定义的一些注解"></a>JDK中预定义的一些注解</h3><pre class=" language-java"><code class="language-java">  <span class="token annotation punctuation">@Override</span> ：检测被该注解标注的方法是否继承自父类<span class="token punctuation">(</span>接口<span class="token punctuation">)</span>的
-  <span class="token annotation punctuation">@Deprecated</span> ：该注解标注的内容，表示已过时 
-  <span class="token annotation punctuation">@SuppressWarnings</span> ：压制警告</code></pre>
-<h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h3><pre class=" language-java"><code class="language-java">  <span class="token number">1</span><span class="token punctuation">.</span>格式：
-     <span class="token keyword">public</span> @<span class="token keyword">interface</span> 注解名称<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-         属性列表<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<h4 id="注解的本质"><a href="#注解的本质" class="headerlink" title="注解的本质"></a>注解的本质</h4><pre class=" language-api"><code class="language-api">1.以后大多数时候我们会使用注解，而不是自定义注解
+2.注解给谁用？
+    1.编译器
+    2.给解析程序用
+3.注解不是程序的一部分，注解就是一个标签</code></pre>
+<h4 id="作用分类"><a href="#作用分类" class="headerlink" title="作用分类"></a>作用分类</h4><pre class=" language-api"><code class="language-api">1.编写文档：通过代码里表示的注解生成doc文档
+2.代码分析：通过代码里表示的注解对代码进行分析(使用反射)  
+3.编译检查：通过代码里表示的注解让编译器能够实现基本的编译检查(Override)</code></pre>
+<h4 id="JDK中预定义的一些注解"><a href="#JDK中预定义的一些注解" class="headerlink" title="JDK中预定义的一些注解"></a>JDK中预定义的一些注解</h4><pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Override</span> ：检测被该注解标注的方法是否继承自父类<span class="token punctuation">(</span>接口<span class="token punctuation">)</span>的
+<span class="token annotation punctuation">@Deprecated</span> ：该注解标注的内容，表示已过时 
+<span class="token annotation punctuation">@SuppressWarnings</span> ：压制警告</code></pre>
+<h4 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h4><pre class=" language-java"><code class="language-java"><span class="token number">1</span><span class="token punctuation">.</span>格式：
+  <span class="token keyword">public</span> @<span class="token keyword">interface</span> 注解名称<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+     属性列表<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-  <span class="token number">2</span><span class="token punctuation">.</span>本质：注解本质上就是一个接口，该接口默认继承Annotation接口
-     <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">it<span class="token punctuation">.</span>cast<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>MyAnno</span> <span class="token keyword">extends</span> <span class="token class-name">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Annotation</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token number">2</span><span class="token punctuation">.</span>本质：注解本质上就是一个接口，该接口默认继承Annotation接口
+  <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">it<span class="token punctuation">.</span>cast<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>MyAnno</span> <span class="token keyword">extends</span> <span class="token class-name">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Annotation</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-  <span class="token number">3</span><span class="token punctuation">.</span>属性：接口里面可以定义的成员方法
-      要求：
-         <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>数据的返回值类型
-            <span class="token operator">*</span>基本数据类型
-            <span class="token operator">*</span>String
-            <span class="token operator">*</span>枚举
-            <span class="token operator">*</span>注解
-            <span class="token operator">*</span>以上类型的数组
+<span class="token number">3</span><span class="token punctuation">.</span>属性：接口里面可以定义的成员方法
+    要求：
+      <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>数据的返回值类型
+         基本数据类型
+         String
+         枚举
+         注解
+         以上类型的数组
 
-         <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>定义了属性，在使用时需要给属性赋值
-            <span class="token operator">*</span>如果定义属性时，使用<span class="token keyword">default</span>关键字给属性默认初始化值，则使用注解可以不进行赋值
-            <span class="token operator">*</span>如果只有一个属性需要赋值，并且属性的名称是value，则value可以省略，直接定义值即可</code></pre>
-<h3 id="元注解：用于描述注解的注解"><a href="#元注解：用于描述注解的注解" class="headerlink" title="元注解：用于描述注解的注解"></a>元注解：用于描述注解的注解</h3><pre class=" language-java"><code class="language-java">   <span class="token number">1</span><span class="token punctuation">.</span>@Target ：描述注解能够作用的位置
-       <span class="token operator">*</span>ElemenType取值 ：
-            <span class="token operator">*</span>TYPE ：可以作用于类上
-            <span class="token operator">*</span>METHDO ：可以作用于方法上
-            <span class="token operator">*</span>FIELD ：可以作用于成员变量上           
+       <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>定义了属性，在使用时需要给属性赋值
+          如果定义属性时，使用<span class="token keyword">default</span>关键字给属性默认初始化值，则使用注解可以不进行赋值
+          如果只有一个属性需要赋值，并且属性的名称是value，则value可以省略，直接定义值即可</code></pre>
+<h4 id="元注解：用于描述注解的注解"><a href="#元注解：用于描述注解的注解" class="headerlink" title="元注解：用于描述注解的注解"></a>元注解：用于描述注解的注解</h4><pre class=" language-java"><code class="language-java"><span class="token number">1</span><span class="token punctuation">.</span>@Target ：描述注解能够作用的位置
+    ElemenType取值 ：
+       TYPE ：可以作用于类上
+       METHDO ：可以作用于方法上
+       FIELD ：可以作用于成员变量上           
 
-   <span class="token number">2</span><span class="token punctuation">.</span>@Retention ：描述注解被保留的阶段
-       <span class="token operator">*</span><span class="token function">Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span> ：当前被描述的注解，会保留到clas字节码文件中，并被JVM读取到
+<span class="token number">2</span><span class="token punctuation">.</span>@Retention ：描述注解被保留的阶段
+    <span class="token function">Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span> ：当前被描述的注解，会保留到clas字节码文件中，并被JVM读取到
 
-   <span class="token number">3</span><span class="token punctuation">.</span>@Documented ：描述注解能否被抽取到api文档中
+<span class="token number">3</span><span class="token punctuation">.</span>@Documented ：描述注解能否被抽取到api文档中
 
-   <span class="token number">4</span><span class="token punctuation">.</span>@Inherited ：描述注解是否被子类继承</code></pre>
-<h3 id="在程序中使用-解析-注解"><a href="#在程序中使用-解析-注解" class="headerlink" title="在程序中使用(解析)注解"></a>在程序中使用(解析)注解</h3><pre class=" language-java"><code class="language-java">   <span class="token number">1</span><span class="token punctuation">.</span>获取注解定义位置的对象  <span class="token punctuation">(</span>Class，Method，Field<span class="token punctuation">)</span>
-   <span class="token number">2</span><span class="token punctuation">.</span>获取指定的注解
-      <span class="token operator">*</span><span class="token function">getAnnotation</span><span class="token punctuation">(</span>Class<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true">//其实就是在内存中生成了一个该注解接口的子类实现对象</span>
-      <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProImpl</span> <span class="token keyword">implements</span> <span class="token class-name">Pro</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token keyword">public</span> String <span class="token function">className</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token string">"it.cast.test.Demo"</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        <span class="token keyword">public</span> String <span class="token function">methodName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token string">"show"</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
+<span class="token number">4</span><span class="token punctuation">.</span>@Inherited ：描述注解是否被子类继承</code></pre>
+<h4 id="在程序中使用-解析-注解"><a href="#在程序中使用-解析-注解" class="headerlink" title="在程序中使用(解析)注解"></a>在程序中使用(解析)注解</h4><pre class=" language-java"><code class="language-java"><span class="token number">1</span><span class="token punctuation">.</span>获取注解定义位置的对象  <span class="token punctuation">(</span>Class，Method，Field<span class="token punctuation">)</span>
+<span class="token number">2</span><span class="token punctuation">.</span>获取指定的注解
+  <span class="token function">getAnnotation</span><span class="token punctuation">(</span>Class<span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">//其实就是在内存中生成了一个该注解接口的子类实现对象</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProImpl</span> <span class="token keyword">implements</span> <span class="token class-name">Pro</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">public</span> String <span class="token function">className</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> <span class="token string">"it.cast.test.Demo"</span><span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+      <span class="token keyword">public</span> String <span class="token function">methodName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> <span class="token string">"show"</span><span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    <span class="token number">3</span><span class="token punctuation">.</span>调用注解中的抽象方法获取配置的属性值</code></pre>
+<span class="token number">3</span><span class="token punctuation">.</span>调用注解中的抽象方法获取配置的属性值</code></pre>
 
             </div>
             <hr/>

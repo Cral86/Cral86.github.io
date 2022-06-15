@@ -545,76 +545,76 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="记录HTML的用途和用法"><a href="#记录HTML的用途和用法" class="headerlink" title="记录HTML的用途和用法"></a>记录HTML的用途和用法</h1><a id="more"></a>
-<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><pre><code>*HTML：用于搭建基础网页,展示页面的内容
-    *Hyper Text Markup Language 超文本标记语言</code></pre>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class=" language-html"><code class="language-html">//1.html文档后缀名：html或者htm
-//2.标签分为：
-    1.围堵标签：有开始标签和结束标签.  如<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
-    2.自闭合标签：开始标签和结束标签在一起.   如<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
-    3.标签可以嵌套：
-      需要正确嵌套,不能交叉嵌套
-    4.在开始标签中定义属性.属性是由键值对构成,值需要引号(单双都可)引起来
-    5.html的标签不区分大小写,建议使用小写</code></pre>
-<h3 id="标签类别"><a href="#标签类别" class="headerlink" title="标签类别"></a>标签类别</h3><pre class=" language-html"><code class="language-html">    1.文件标签：
-      html：告知浏览器这是一个HTML文档。
-      head：head 元素可包含关于文档的信息,引入外部资源
-      title：定义文档的标题。
-      dody：文档的主体.其中包含文档的所有内容(比如文本、图像、颜色、图形等等)
-      <span class="token doctype">&lt;!DOCTYPE>该标签告知浏览器文档所使用的 HTML 规范.
-    2.文本标签：
-      &lt;h1></span> to <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span><span class="token punctuation">></span></span>：字体大小逐渐递减
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>：段落
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>：换行符
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">></span></span>：展示一条水平线
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">></span></span>：字体加粗
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">></span></span>：斜体
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span><span class="token punctuation">></span></span>：字体标签
-      属性定义：
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color</span><span class="token punctuation">></span></span>：三色调配 #值1值2值3,值的范围00~FF之间.
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>width</span><span class="token punctuation">></span></span>：数值的单位,默认是px(像素)或者占比(相较于父元素)
+                <h3 id="记录HTML的用途和用法"><a href="#记录HTML的用途和用法" class="headerlink" title="记录HTML的用途和用法"></a>记录HTML的用途和用法</h3><a id="more"></a>
 
-    3.获取成员方法
-       //获取所有方法
-       *Method[]   getMethod();
-       //获得指定方法
-       *Method[]   getDeclaredMethod(name:"方法名");
+<h4 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h4><pre class=" language-api"><code class="language-api">HTML: 用于搭建基础网页,展示页面的内容
+    Hyper Text Markup Language 超文本标记语言</code></pre>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><pre class=" language-html"><code class="language-html">1.html文档后缀名:html或者htm
+2.标签分为:
+  (1) 围堵标签: 有开始标签和结束标签.  如<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+  (2) 自闭合标签: 开始标签和结束标签在一起.   如<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+  (3) 标签可以嵌套: 需要正确嵌套,不能交叉嵌套
+  (4) 在开始标签中定义属性.属性是由键值对构成,值需要引号(单双都可)引起来
+  (5) html的标签不区分大小写,建议使用小写</code></pre>
+<h4 id="标签类别"><a href="#标签类别" class="headerlink" title="标签类别"></a>标签类别</h4><pre class=" language-html"><code class="language-html">1.文件标签:
+  (1)html: 告知浏览器这是一个HTML文档。
+  (2)head: head 元素可包含关于文档的信息,引入外部资源
+  (3)title: 定义文档的标题。
+  (4)dody: 文档的主体.其中包含文档的所有内容(比如文本、图像、颜色、图形等等)
+  (5)<span class="token doctype">&lt;!DOCTYPE>: 该标签告知浏览器文档所使用的 HTML 规范.
 
-    3.图片标签：
-      &lt;img src = "图片路径" >
-      ./或者省略不写，表示图片在当前路径下
-      . ./ 表示文件的上一级目录
-      /表示当前路径的下一级
+2.文本标签:
+  (1)&lt;h1></span> to <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span><span class="token punctuation">></span></span>: 字体大小逐渐递减
+  (2)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>: 段落
+  (3)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>: 换行符
+  (4)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">></span></span>: 展示一条水平线
+  (5)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">></span></span>: 字体加粗
+  (6)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">></span></span>: 斜体
+  (7)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span><span class="token punctuation">></span></span>: 字体标签
 
-    4.列表标签：
-      1.有序列表：
-        ol：
-        li：
-      2.无序列表
-        ul：
-        li：
-    5.链接标签：
-      &lt;a href = "连接地址">  //a：定义一个超链接  href：指定访问资源的url
-      &lt;a href = "连接地址" target = "_blank">  target：指定打开资源的方式  默认_self
-    6.div和span：
-      div：每一个div占满一整行.块级标签
-      span：文本信息在一行展示,行内标签,内联标签
-    7.语义化标签：html5为了提高程序的可读性,提供了一些标签
-      1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>
-      2.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">></span></span>
-    8.表格标签：
-      1.table：定义表格
-        width：宽度
-        border：边框
-        bgcolor：背景色
-        cellpadding：定义内容和单元格之间的距离
-        cellspacing：定义单元格之间的距离,如果为0,则单元格的线会合并成为一条
-      2.tr：定义行
-      3.td：定义单元格
-        colspan：合并列
-        rowspan：合并行
-      4.th：定义表头单元格
-      5.caption：表格标题</code></pre>
+3.属性定义:
+  (1)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color</span><span class="token punctuation">></span></span>: 三色调配 #值1值2值3,值的范围00~FF之间.
+  (2)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>width</span><span class="token punctuation">></span></span>: 数值的单位,默认是px(像素)或者占比(相较于父元素)
+
+4.图片标签:
+  &lt;img src = "图片路径" >
+    ./或者省略不写，表示图片在当前路径下
+    . ./ 表示文件的上一级目录
+    /表示当前路径的下一级
+
+4.列表标签:
+  (1)有序列表:
+     ol:
+     li:
+  (1)无序列表
+     ul:
+     li:
+
+5.链接标签:
+  (1)&lt;a href = "连接地址">  //a:定义一个超链接  href: 指定访问资源的url
+  (2)&lt;a href = "连接地址" target = "_blank">  target: 指定打开资源的方式  默认_self
+
+6.div和span:
+  div: 每一个div占满一整行.块级标签
+  span: 文本信息在一行展示,行内标签,内联标签
+
+7.语义化标签: html5为了提高程序的可读性,提供了一些标签
+  (1)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>: 页面头
+  (2)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">></span></span>: 页面尾
+
+8.表格标签:
+  (1)table: 定义表格
+     width: 宽度
+     border: 边框
+     bgcolor: 背景色
+     cellpadding: 定义内容和单元格之间的距离
+     cellspacing: 定义单元格之间的距离,如果为0,则单元格的线会合并成为一条
+  (2)tr: 定义行
+  (3)td: 定义单元格
+     colspan: 合并列
+     rowspan: 合并行
+  (4)th: 定义表头单元格
+  (5)caption: 表格标题</code></pre>
 
             </div>
             <hr/>

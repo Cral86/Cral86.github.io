@@ -545,74 +545,81 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="记录反射的使用方法"><a href="#记录反射的使用方法" class="headerlink" title="记录反射的使用方法"></a>记录反射的使用方法</h1><a id="more"></a>
-<h3 id="反射的优势"><a href="#反射的优势" class="headerlink" title="反射的优势"></a>反射的优势</h3><pre><code>*反射：将类的各个组成部分封装为其他对象
-    *好处：
+                <h3 id="记录反射的使用方法"><a href="#记录反射的使用方法" class="headerlink" title="记录反射的使用方法"></a>记录反射的使用方法</h3><a id="more"></a>
+
+<h4 id="反射的优势"><a href="#反射的优势" class="headerlink" title="反射的优势"></a>反射的优势</h4><pre><code>反射: 将类的各个组成部分封装为其他对象
+    优点:
        1.可以在程序运行过程中，操作这些对象
        2.可以解耦，提高程序的可扩展性</code></pre>
-<h3 id="获取Class对象的方式"><a href="#获取Class对象的方式" class="headerlink" title="获取Class对象的方式"></a>获取Class对象的方式</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//1.多用于配置文件，将类名定义在配置文件中。读取文件，加载类</span>
+<h4 id="获取Class对象的方式"><a href="#获取Class对象的方式" class="headerlink" title="获取Class对象的方式"></a>获取Class对象的方式</h4><pre class=" language-java"><code class="language-java"><span class="token number">1</span><span class="token punctuation">.</span>多用于配置文件，将类名定义在配置文件中。读取文件，加载类
     Class<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"全类名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//将字节码文件加载进内存，返回class对象</span>
-<span class="token comment" spellcheck="true">//2.多用于参数传递</span>
+<span class="token number">2</span><span class="token punctuation">.</span>多用于参数传递
     类名<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//通过类名的class属性获取</span>
-<span class="token comment" spellcheck="true">//3.多用于对象获取字节码我文件对象</span>
+<span class="token number">3</span><span class="token punctuation">.</span>多用于对象获取字节码我文件对象
     对象<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//getClass()方法在Object中定义</span></code></pre>
-<h3 id="Class对象的使用"><a href="#Class对象的使用" class="headerlink" title="Class对象的使用"></a>Class对象的使用</h3><pre class=" language-java"><code class="language-java">获取功能：
-    <span class="token number">1</span><span class="token punctuation">.</span>获取成员变量：
-       <span class="token comment" spellcheck="true">//获取所有public修饰符的成员变量</span>
-       <span class="token operator">*</span>Field<span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
-       <span class="token comment" spellcheck="true">//获取指定名称的public修饰符的成员变量</span>
-       <span class="token operator">*</span>Field      <span class="token function">getField</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h4 id="Class对象的使用"><a href="#Class对象的使用" class="headerlink" title="Class对象的使用"></a>Class对象的使用</h4><pre class=" language-java"><code class="language-java">获取功能：
+  <span class="token number">1</span><span class="token punctuation">.</span>获取成员变量：
+    <span class="token comment" spellcheck="true">//获取所有public修饰符的成员变量</span>
+    Field<span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token comment" spellcheck="true">//获取指定名称的public修饰符的成员变量</span>
+    Field      <span class="token function">getField</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-       <span class="token comment" spellcheck="true">//获取所有的成员变量，不考虑修饰符</span>
-       <span class="token operator">*</span>Field<span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getDeclaredFileds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token operator">*</span>Field      <span class="token function">getDeclaredFiled</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//获取所有的成员变量，不考虑修饰符</span>
+    Field<span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getDeclaredFileds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Field      <span class="token function">getDeclaredFiled</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token number">2</span><span class="token punctuation">.</span>获取构造方法：
-       <span class="token operator">*</span>Constructor<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getConstructons</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token operator">*</span>Constructor<span class="token operator">&lt;</span>T<span class="token operator">></span>      <span class="token function">getConstructons</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token number">2</span><span class="token punctuation">.</span>获取构造方法：
+    Constructor<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getConstructons</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Constructor<span class="token operator">&lt;</span>T<span class="token operator">></span>      <span class="token function">getConstructons</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-       <span class="token operator">*</span>Constructor<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getDeclaredConstructon</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token operator">*</span>Constructor<span class="token operator">&lt;</span>T<span class="token operator">></span>      <span class="token function">getDeclaredConstructons</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token comment" spellcheck="true">//创建对象</span>
-       <span class="token operator">*</span>constructor<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token comment" spellcheck="true">//空参构造简化版：</span>
-       <span class="token operator">*</span>newclass<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Constructor<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token function">getDeclaredConstructon</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Constructor<span class="token operator">&lt;</span>T<span class="token operator">></span>      <span class="token function">getDeclaredConstructons</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//创建对象</span>
+    constructor<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//空参构造简化版：</span>
+    newclass<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token number">3</span><span class="token punctuation">.</span>获取成员方法
-       <span class="token comment" spellcheck="true">//获取所有方法</span>
-       <span class="token operator">*</span>Method<span class="token punctuation">[</span><span class="token punctuation">]</span>   <span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token comment" spellcheck="true">//获得指定方法</span>
-       <span class="token operator">*</span>Method<span class="token punctuation">[</span><span class="token punctuation">]</span>   <span class="token function">getDeclaredMethod</span><span class="token punctuation">(</span>name<span class="token operator">:</span><span class="token string">"方法名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token number">3</span><span class="token punctuation">.</span>获取成员方法
+    <span class="token comment" spellcheck="true">//获取所有方法</span>
+    Method<span class="token punctuation">[</span><span class="token punctuation">]</span>   <span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//获得指定方法</span>
+    Method<span class="token punctuation">[</span><span class="token punctuation">]</span>   <span class="token function">getDeclaredMethod</span><span class="token punctuation">(</span>name<span class="token operator">:</span><span class="token string">"方法名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-       <span class="token operator">*</span><span class="token keyword">new</span><span class="token punctuation">.</span>类<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token comment" spellcheck="true">//获取所有方法</span>
-       <span class="token operator">*</span>iter遍历
-       <span class="token comment" spellcheck="true">//执行方法</span>
-       <span class="token operator">*</span>方法名_method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">new</span><span class="token punctuation">.</span>类<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//获取所有方法</span>
+    iter遍历
+    <span class="token comment" spellcheck="true">//执行方法</span>
+    方法名_method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token number">4</span><span class="token punctuation">.</span>获取类名
-      类Class<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token number">4</span><span class="token punctuation">.</span>获取类名
+    类Class<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
 <span class="token comment" spellcheck="true">//忽略访问权限修饰符的安全检查</span>
 d<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//暴力反射</span></code></pre>
-<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><pre class=" language-java"><code class="language-java">   <span class="token comment" spellcheck="true">//1.将需要创建的对象的全类名和需要执行的方法定义在配置文件中</span>
-     文件名 对象名<span class="token operator">=</span><span class="token keyword">new</span> 文件名<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">//2.在程序中加载读取配置文件</span>
-     类名<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getClassLoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-     classLoader<span class="token punctuation">.</span><span class="token function">getResourceAsStream</span><span class="token punctuation">(</span><span class="token string">"文件名"</span><span class="token punctuation">)</span>
-     对象名<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>is<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">//3.获取配置文件在定义的数据</span>
-     对象名<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"类名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-     对象名<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"方法名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">//4.使用反射加载类文件进内存</span>
-     Class<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">//5.创建对象</span>
-     <span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">//6.获取对象方法</span>
-     <span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">//5.执行方法</span>
-     method<span class="token punctuation">.</span>invoke<span class="token punctuation">;</span></code></pre>
+<h4 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//1.将需要创建的对象的全类名和需要执行的方法定义在配置文件中</span>
+文件名 对象名<span class="token operator">=</span><span class="token keyword">new</span> 文件名<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//2.在程序中加载读取配置文件</span>
+类名<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getClassLoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+classLoader<span class="token punctuation">.</span><span class="token function">getResourceAsStream</span><span class="token punctuation">(</span><span class="token string">"文件名"</span><span class="token punctuation">)</span>
+对象名<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>is<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//3.获取配置文件在定义的数据</span>
+对象名<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"类名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+对象名<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"方法名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//4.使用反射加载类文件进内存</span>
+Class<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//5.创建对象</span>
+<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//6.获取对象方法</span>
+<span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//7.执行方法</span>
+method<span class="token punctuation">.</span>invoke<span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
