@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo, http://localhost:4000">
+    <meta name="keywords" content="Linux常用命令, http://localhost:4000">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo | 沐心 - ❤(*^▽^*)❤</title>
+    <title>Linux常用命令 | 沐心 - ❤(*^▽^*)❤</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -387,12 +387,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo</h1>
+                    <h1 class="description center-align post-title">Linux常用命令</h1>
                 </div>
             </div>
         </div>
@@ -513,8 +513,8 @@
                                 <span class="chip bg-color">笔记</span>
                             </a>
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-19
+                    2022-06-27
                 </div>
                 
 
@@ -545,19 +545,148 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="记录Hexo的一些常用命令"><a href="#记录Hexo的一些常用命令" class="headerlink" title="记录Hexo的一些常用命令"></a>记录Hexo的一些常用命令</h3><a id="more"></a>
+                <h3 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h3><a id="more"></a>
 
-<h4 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h4><pre class=" language-cmd"><code class="language-cmd">hexo init</code></pre>
-<h4 id="部署git插件"><a href="#部署git插件" class="headerlink" title="部署git插件"></a>部署git插件</h4><pre class=" language-cmd"><code class="language-cmd">cnpm install --save hexo-deployer-git</code></pre>
-<h4 id="本地查看"><a href="#本地查看" class="headerlink" title="本地查看"></a>本地查看</h4><pre class=" language-cmd"><code class="language-cmd">重新生成
-    hexo g
+<h4 id="1-常规指令"><a href="#1-常规指令" class="headerlink" title="1.常规指令"></a>1.常规指令</h4><pre class=" language-cmd"><code class="language-cmd">1.安装命令
+    yum install 安装包
+2.输出命令
+    echo "字符串"
+3.用户操作
+    添加用户:
+        useradd 选项 用户名
+            -g: 指定用户主组
+            -G: 指定用户附加组
+            -u: 指定用户ID
+            -c: 注释信息
+    切换用户:
+        su 用户名
+    修改用户:
+        usermod 选项 用户名
+    修改密码:
+        passwd 用户名
+    删除用户:
+        userdel 选项 用户名
+4.组的处理
+    增加组:
+        groupadd -g 组ID 组名
+    修改组:
+        groupmod -g 组ID  组名
+                 -n 新组名 旧组名
+    删除组:
+        groupdel 组名
+5.权限管理
+    三种权限: r(读) w(写) x(执行)
+    三种身份: 属主 属组 其他用户
+    文件或文件夹权限(10位):
+        1:        表示文件类型
+        2~4:    属主权限
+        5~7:    属组权限
+        8~10:    其他人权限
+    修改权限:
+        chmod -R 权限 文件/文件夹    (R 递归修改)
+        权限表示符:
+            u:    属主权限
+            g:    属组权限
+            o:    其他人权限
+            a:    所有
+            r:    读
+            w:    写
+            x:    执行
+            +:    增加
+            -:    减少(也可表示空)
+            =:    赋值
+        权限可以用数字表示:
+            r:    4
+            w:    2
+            x:    1
+            -:    0
+        chmod 777 文件名    (赋予所有权限给该文件)
+    默认权限
+        (和权限掩码有关系(umask))
+        文件: 644
+        文件夹: 755</code></pre>
+<h4 id="2-文件操作"><a href="#2-文件操作" class="headerlink" title="2. 文件操作"></a>2. 文件操作</h4><pre class=" language-cmd"><code class="language-cmd">1.创建文件夹
+    mkdir 目录名
+    mkdir -p 目录1 目录2 ...
+    touch 文件名或文件路径
+2.复制文件
+    cp 文件名 复制后路径
+    cp -r 文件名 文件路径(复制文件夹)
+3.移动文件
+    mv 文件名 移动后地址
+4.查看文件
+    cat 文件名(仅查看)
+    head -5 文件名(查看文件前5行)
+    tail -5 文件名(查看文件后5行)
+    tail -f 日志文件(查看日志文件新增的内容)
+    nl 文件名(查看文件并附带行号)
+5.删除文件
+    rm -rf 文件名/文件夹(删除文件夹或文件名) 
+    r: 递归
+    f: 强制删除
+6.编辑文件
+    vim 文件名(编辑文件)
+    vim三种模式:
+        命令模式(默认进入方式)
+            删除: 
+                dd   (删除单行)
+                3dd  (删除多行)
+                D    (删除后保留空行)
+            复制操作: 
+                yy   (复制单行)
+                3yy     (复制多行)
+                p     (粘贴)
+            光标移动:
+                gg   (首行)
+                G     (末行)
+                5G      (移动到第五行)
+            撤销:
+                u     (撤销)
+                crtl + r     (恢复撤销前的状态)
+        编辑模式(i)
 
-Start开启本地服务器，打开本地网址http://localhost:4000/可访问
-    hexo s</code></pre>
-<h4 id="部署到github仓库"><a href="#部署到github仓库" class="headerlink" title="部署到github仓库"></a>部署到github仓库</h4><pre class=" language-cmd"><code class="language-cmd">hexo d</code></pre>
-<h4 id="更换yilia-Matery主题"><a href="#更换yilia-Matery主题" class="headerlink" title="更换yilia,Matery主题"></a>更换yilia,Matery主题</h4><pre class=" language-cmd"><code class="language-cmd">git clone https://github.com/litten/hexo-theme-yilia
-git clone https://github.com/blinkfox/hexo-theme-matery</code></pre>
-<h4 id="根据-标题名称-在-source-post-生成-markdown-文件"><a href="#根据-标题名称-在-source-post-生成-markdown-文件" class="headerlink" title="根据 标题名称  在/source/_post 生成 markdown 文件"></a>根据 标题名称  在/source/_post 生成 markdown 文件</h4><pre class=" language-cmd"><code class="language-cmd">hexo new post 标题名称</code></pre>
+        末行模式(w     q wq q!)
+            w    (保存不退出)
+            q    (退出)
+            wq    (保存退出)
+            q!    (强制退出(不保存修改))
+            !ls -l    (在不退出当前文件时,运行系统某些指令)
+            set nu    (设置临时行号)
+            set nonu    (取消临时设置的行号)
+            /关键字    (向下搜索关键字)    n↓   N↑
+            ?关键字    (向上搜索关键字)     n↑   N↓
+            替换操作
+                %表示整篇文档
+                g表示整行 global    
+                s/root               (替换当前行中的第一个)
+                s/root    g           (替换当前行中所用匹配到的)
+                %s/root/    /       (替换所有行中第一个匹配到的)
+                %s/root/    /g       (替换文档中所有的匹配项)</code></pre>
+<h4 id="3-三剑客"><a href="#3-三剑客" class="headerlink" title="3.三剑客"></a>3.三剑客</h4><pre class=" language-cmd"><code class="language-cmd">1.grep
+    -v    (反向过滤)
+    -i    (忽略大小写)
+    -E    (开启扩展正则)
+    -c    (统计次数)
+    -o    (只显示正则部分)
+2.sed
+    sed -n '3,5p' 文件名    (只打印3~5行)
+
+    sed '/^$/d'    文件名    (删除空行)
+    sed '3,6d'    文件名    (删除3~6行)
+    sed '3,$d'    文件名    (删除3~最后一行)
+
+    sed 's/in/on/g' 文件名    (将每一行中的in替换为on并输出)
+    sed -n 's/^in/on/p' 文件名    (只打印替换的行)
+
+    (-i会直接修改文件内容)
+    sed -i 's/:/,/g' 文件名    (将文件中的:替换为,并保存在文件中)
+3.awk    
+    awk '&#123;print $0&#125;' 文件名    (输出整个文本内容)    
+    echo 'in' | awk '&#123;print $3&#125;'    (输出第三列)            
+    awk -F ':' '&#123; print $1 &#125;' 文件名    (按照分隔符:分隔输出第一列 )   
+    echo 'in' | awk '&#123;print $NF&#125;'    (输出最后一列)   
+    awk -F ':' '&#123;print NR ":" $1&#125;' 文件名    (输出行号) 
+    awk '&#123;if(NR>=5 && NR<=10) print $1&#125;' 文件名    (输出部分行)    </code></pre>
 
             </div>
             <hr/>
@@ -583,7 +712,7 @@ git clone https://github.com/blinkfox/hexo-theme-matery</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.zsmxy.cn/2020/10/19/Hexo/">https://www.zsmxy.cn/2020/10/19/Hexo/</a>
+                    <a href="https://www.zsmxy.cn/2022/06/27/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">https://www.zsmxy.cn/2022/06/27/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -625,8 +754,8 @@ git clone https://github.com/blinkfox/hexo-theme-matery</code></pre>
                                     <span class="chip bg-color">笔记</span>
                                 </a>
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -1057,77 +1186,29 @@ git clone https://github.com/blinkfox/hexo-theme-matery</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/10/19/MySQL/">
+                <a href="/2022/06/27/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="MySQL">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Linux常用命令">
                         
-                        <span class="card-title">MySQL</span>
+                        <span class="card-title">Linux常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录MySQL的一些常用命令
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            沐心
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
-                    <a href="/tags/MySQL/">
-                        <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/10/19/Hexo/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Hexo">
-                        
-                        <span class="card-title">Hexo</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            记录Hexo的一些常用命令
+                            Linux常用命令
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-27
                             </span>
                         <span class="publish-author">
                             
@@ -1145,8 +1226,57 @@ git clone https://github.com/blinkfox/hexo-theme-matery</code></pre>
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/06/22/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Git常用命令">
+                        
+                        <span class="card-title">Git常用命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Git常用命令
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            沐心
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/Git/">
+                        <span class="chip bg-color">Git</span>
                     </a>
                     
                 </div>
